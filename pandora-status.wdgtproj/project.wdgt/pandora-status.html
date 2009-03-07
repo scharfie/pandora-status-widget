@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>PandoraBoy Notifications</title>
+  <script src="http://www.pandora.com/include/PandoraAPIv2.js"></script>
+  <link rel="stylesheet" href="pandora-status.css" />
+  <script type="text/javascript">
+    /*  Known events: 
+        PandoraEnded:
+        PandoraStarted:
+        SongEnded:songName:artistName:songURL:artURL (no matter how it ended)
+        SongPlayed:songName:artistName:songURL:artURL
+        StationEnded:stationName:stationId:isShared:isQuickMix
+        StationPlayed:stationName:stationId:isShared:isQuickMix
+    */
+
+    function initializePandora() {
+      Pandora.setEventHandler("SongPlayed", function(songData) {
+        playerStatus(songData)
+      });
+
+      Pandora.setEventHandler("SongPaused", function(songData) {
+        songData.songName += " (paused)"
+  	    playerStatus(songData)
+      });
+
+      Pandora.setEventHandler("StationPlayed", function(stationData) {
+        var status = { songName: stationData.stationName, artistName: 'Tuning...' }
+        playerStatus(status)
+      });
+	
+      Pandora.setEventHandler("PandoraStarted", function(stationData) {
+        var status = { songName: stationData.stationName, artistName: '' }
+        playerStatus(status)
+      });
+    }
+
+    function playerStatus(data) {
+      var name   = data.songName;
+      var artist = data.artistName;
+
+      var s = get('songName');   s.innerHTML = name
+      var a = get('artistName'); a.innerHTML = artist
+    }
+	
+	function get(id) {
+	  return document.getElementById(id);
+	}
+  </script>
+</head>
+<body onload="initializePandora()">
+  <div id="songName">Pandora Status</div>
+  <div id="artistName">Chris Scharf</div>
+</body>  
+</html>
