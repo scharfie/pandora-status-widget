@@ -27,6 +27,6 @@
 	<key>MainHTML</key>
 	<string>pandora-status.html</string>
 	<key>Width</key>
-	<integer>270</integer>
+	<integer>410</integer>
 </dict>
 </plist>

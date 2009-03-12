@@ -1,9 +1,11 @@
 body {
   margin: 5px;
-  font: normal 12px 'Lucida Grande', 'Myriad Pro';
+  font: bold 13px 'Lucida Grande';
   text-align: right;
   color: #fff;
-  text-shadow: #333 1px 1px 1px;
+  opacity: 0.9;
+  /*background: #000*/
+  /*text-shadow: #333 1px 1px 1px;*/
 }
 
 #artistName {

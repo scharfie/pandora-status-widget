@@ -7,7 +7,7 @@
 	<key>CYProjectFormatVersion</key>
 	<integer>1</integer>
 	<key>IsInCodeGeneratorMode</key>
-	<false/>
+	<true/>
 	<key>Steps</key>
 	<array>
 		<dict>
